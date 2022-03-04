@@ -1,0 +1,33 @@
+name: Arch Linux
+
+on:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  arch:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux/archlinux:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Install Packages
+        run: |
+          pacman -Syy --noconfirm && pacman -S sudo nano --noconfirm
+          sudo pacman -Syy --noconfirm
+          sudo pacman -S tmate --noconfirm
+
+      - name: Generate Tmate Session
+        run: |
+          sudo bash tmate.sh | tee /tmp/ssh.txt
+          cat /tmp/ssh.txt
+      
+      - name: Spam
+        run: |
+          sudo bash spam.sh
