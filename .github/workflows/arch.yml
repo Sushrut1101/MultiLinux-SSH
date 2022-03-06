@@ -11,17 +11,11 @@ jobs:
   arch:
     runs-on: ubuntu-latest
     container:
-      image: archlinux/archlinux:latest
+      image: ghcr.io/sushrut1101/docker:arch
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
-      - name: Install Packages
-        run: |
-          pacman -Syy --noconfirm && pacman -S sudo nano --noconfirm
-          sudo pacman -Syy --noconfirm
-          sudo pacman -S tmate --noconfirm
 
       - name: Generate Tmate Session
         run: |
