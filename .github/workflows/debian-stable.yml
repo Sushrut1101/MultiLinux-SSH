@@ -8,7 +8,7 @@ defaults:
     shell: bash
 
 jobs:
-  ubuntu:
+  debian:
     runs-on: ubuntu-latest
     container:
       image: debian:stable
@@ -20,7 +20,7 @@ jobs:
       - name: Install Packages
         run: |
           apt update
-          apt install sudo neofetch tmate aria2c curl wget-y
+          apt install sudo neofetch tmate aria2 curl wget -y
 
       - name: Generate Tmate Session
         run: |
