@@ -26,7 +26,7 @@ jobs:
         run: |
           sudo bash tmate.sh | tee /tmp/ssh.txt
           cat /tmp/ssh.txt
-      
-      - name: Spam
+
+      - name: Ignore this
         run: |
-          sudo bash spam.sh
+          while true; do sleep 1; done

@@ -11,22 +11,17 @@ jobs:
   fedora:
     runs-on: ubuntu-latest
     container:
-      image: fedora:latest
+      image: ghcr.io/sushrut1101/docker:latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install Packages
-        run: |
-          sudo dnf update -y
-          sudo dnf install -y git curl wget bash neofetch aria2 tmate
-
       - name: Generate Tmate Session
         run: |
           sudo bash tmate.sh | tee /tmp/ssh.txt
           cat /tmp/ssh.txt
-      
-      - name: Spam
+
+      - name: Ignore this
         run: |
-          sudo bash spam.sh
+          while true; do sleep 1; done
