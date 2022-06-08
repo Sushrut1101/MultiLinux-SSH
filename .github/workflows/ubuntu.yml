@@ -22,6 +22,6 @@ jobs:
           sudo bash tmate.sh | tee /tmp/ssh.txt
           cat /tmp/ssh.txt
 
-      - name: Ignore this
+      - name: Blank Output
         run: |
-          while true; do sleep 1; done
+          bash blank.sh
